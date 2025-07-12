@@ -1,0 +1,171 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body{
+  margin: 0;
+  padding: 0;
+  display: block;
+}
+.body{
+  display: flex;
+}
+h1,h2,h3,h4,h5{
+  font-family: 'Kanit';
+}
+.nav-container ul{
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: white;
+  width: 200px;
+  height: 100vh;
+  align-items:center;
+  justify-content: flex-start;
+  gap: 40px;
+  padding-top: 100px;
+}
+.nav-container ul li{
+  font-family: 'Kanit';
+  font-size: 20px;
+  color: black;
+}
+.title{
+  text-align: center;
+  margin-top: 100px;
+  font-weight: 500;
+  font-size: 60px;
+}
+.home-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.totalAll-box{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background-color: white;
+  margin-top: 50px;
+  padding: 20px;
+  border-radius: 10px;
+  width: 800px;
+  padding-left: 30px;
+  padding-right:30px;
+}
+.total-box h1,.total-box h3{
+  font-weight: 500;
+  color: black;
+}
+.earnpay-box{
+  display: flex;
+  justify-content: space-between;
+}
+.earn-box,.pay-box{
+  width: 350px;
+  padding: 20px;
+  border-radius: 10px;
+}
+.earn-box h1,.earn-box h3{
+  font-weight: 500;
+  color: white;
+}
+.pay-box h1,.pay-box h3{
+  font-weight: 500;
+  color: white;
+}
+.earn-box{
+  background-color: green;
+}
+.pay-box{
+  background-color: red;
+}
+.form-container form{
+  display: flex;
+  flex-direction: column;
+  margin-top: 80px;
+  gap: 20px;
+}
+.form-container form input,.form-container form select{
+  width: 400px;
+  height: 50px;
+  font-family: 'kanit';
+  font-weight: 400;
+  font-size: 20px;
+}
+.form-container form button{
+  font-family: 'kanit';
+}
+form h3{
+  font-weight: 400;
+}
+.topic{
+  background-color: black;
+  margin-top: 60px;
+}
+.topic li{
+  color: white;
+  border: 1px solid white;
+}
+.list{
+  background-color: white;
+}
+.list li{
+  color: black;
+  border: 1px solid black;
+}
+.list-container ul{
+  display: flex;
+  width: 850px;
+  justify-content: space-around;
+  list-style: none;
+}
+.list-container ul li{
+  font-family: 'kanit';
+  font-size: 25px;
+  padding: 20px;
+  flex: 1;
+  text-align: center;
+}
+.load{
+  font-weight: 400;
+  margin-top: 300px;
+}
+.icon{
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+}
+.fa-trash{
+  color: red;
+}
+i{
+  cursor: pointer;
+}
+.latest-container{
+  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.latest-box{
+  display: flex;
+  width: 800px;
+  justify-content: space-between;
+}
+.latest-container ul{
+  list-style: none;
+  background-color: white;
+  color: black;
+  padding: 20px;
+  border-radius: 10px;
+}
+.latest-container ul li{
+  font-family: 'kanit';
+}
