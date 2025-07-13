@@ -14,6 +14,12 @@ function Earn() {
 
   const [isLoading,setIsLoading] = useState(true)
 
+  const months = [
+    "มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน",
+    "กรกฎาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม"
+  ];
+  
+
   const getEarnData = ()=>{
     axios.get(`${import.meta.env.VITE_APP_API}/earnlist`,{params:{month,year}})
     .then((res)=>{
@@ -89,7 +95,7 @@ function Earn() {
             <select onChange={getFilterMonth}>
               <option value="" hidden>-- เลือกเดือน --</option>
               {monthList.map((e)=>{
-                return(<option value={e}>{e}</option>)
+                return(<option value={e}>{months[e-1]}</option>)
               })}
             </select>
             <select onChange={getFilterYear}>

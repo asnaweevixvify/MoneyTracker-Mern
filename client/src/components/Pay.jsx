@@ -14,6 +14,11 @@ function Pay() {
 
   const [isLoading,setIsLoading] = useState(true)
 
+  const months = [
+    "มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน",
+    "กรกฎาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม"
+  ];
+
   const getPayData = ()=>{
     axios.get(`${import.meta.env.VITE_APP_API}/paylist`,{params:{month,year}})
     .then((res)=>{
@@ -89,7 +94,7 @@ function Pay() {
             <select onChange={getFilterMonth}>
               <option value="" hidden>-- เลือกเดือน --</option>
               {monthList.map((e)=>{
-                return(<option value={e}>{e}</option>)
+                return(<option value={e}>{months[e-1]}</option>)
               })}
             </select>
             <select onChange={getFilterYear}>
