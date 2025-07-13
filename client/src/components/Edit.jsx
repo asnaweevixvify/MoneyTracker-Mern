@@ -16,10 +16,6 @@ function Edit() {
     .catch((err)=>console.log(err))
   }
 
-  useEffect(()=>{
-    getOldData()
-  },[])
-
   const inputValue = (topic)=>{
     return (e)=>{
       if(topic === 'date'){
@@ -48,6 +44,10 @@ function Edit() {
     })
     .catch((err)=>console.log(err))
   }
+
+  useEffect(()=>{
+    getOldData()
+  },[])
 
   return (
     <div className="form-container">

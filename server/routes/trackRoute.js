@@ -1,7 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const {
-    create,totalMoney,totalEarn,totalPay,
+const { create,totalMoney,totalEarn,totalPay,
     getEarnList,getPayList,deleteItem,getOlddata
     ,update,latest,getMonthList,getYearList
 } = require('../controllers/trackControllers')

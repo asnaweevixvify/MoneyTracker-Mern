@@ -40,15 +40,6 @@ function Earn() {
     setYear(e.target.value)
   }
 
-  useEffect(()=>{
-    getEarnData()
-    getDateList()
-  },[])
-
-  useEffect(()=>{
-    getEarnData()
-  },[month,year])
-
   const confirmDel= (id)=>{
     Swal.fire({
       title: "ต้องการลบรายการหรือไม่",
@@ -75,6 +66,15 @@ function Earn() {
     })
     .catch((err)=>console.log(err))
   }
+
+  useEffect(()=>{
+    getEarnData()
+    getDateList()
+  },[])
+
+  useEffect(()=>{
+    getEarnData()
+  },[month,year])
 
   if(isLoading){
     return(

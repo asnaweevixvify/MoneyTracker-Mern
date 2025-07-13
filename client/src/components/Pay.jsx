@@ -40,15 +40,6 @@ function Pay() {
     setYear(e.target.value)
   }
 
-  useEffect(()=>{
-    getPayData()
-    getDateList()
-  },[])
-
-  useEffect(()=>{
-    getPayData()
-  },[month,year])
-
   const confirmDel= (id)=>{
     Swal.fire({
       title: "ต้องการลบรายการหรือไม่",
@@ -76,6 +67,15 @@ function Pay() {
     .catch((err)=>console.log(err))
   }
 
+  useEffect(()=>{
+    getPayData()
+    getDateList()
+  },[])
+
+  useEffect(()=>{
+    getPayData()
+  },[month,year])
+
   if(isLoading){
     return(
       <h1 className='load'>กำลังโหลดข้อมูล...</h1>
@@ -94,9 +94,9 @@ function Pay() {
             </select>
             <select onChange={getFilterYear}>
               <option value="" hidden>-- เลือกปี --</option>
-              <option value='none'>ทั้งหมด</option>
-              <option value="1">2025</option>
-              <option value="2">2026</option>
+              {yearList.map((e)=>{
+                return(<option value={e}>{e}</option>)
+              })}
             </select>
           </div>
           <ul className='topic'>

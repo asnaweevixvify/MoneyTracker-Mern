@@ -8,7 +8,6 @@ function Nav() {
             <Link to='/earn'><li>รายรับ</li></Link>
             <Link to='/pay'><li>รายจ่าย</li></Link>
             <Link to='/form'><li>บันทีกรายการ</li></Link>
-            <Link to='/login'><li>เข้าสู่ระบบ</li></Link>
         </ul>
     </div>
   )

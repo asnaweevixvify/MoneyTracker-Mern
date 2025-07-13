@@ -2,16 +2,13 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 
 function Home() {
-    const [moneyInfo,setMoneyInfo] = useState({
-        earn:0,
-        pay:0
-    })
+    const [moneyInfo,setMoneyInfo] = useState({earn:0,pay:0})
     const [latestData,setLatestData] = useState([])
     const [isLoading,setIsLoading] = useState(true)
 
     const {total,earn,pay} = moneyInfo
 
-    async function getMoneyInfo(){
+    const getMoneyInfo = async()=>{
         const [resTotal,resEarn,resPay] = await Promise.all([
             axios.get(`${import.meta.env.VITE_APP_API}/total`),
             axios.get(`${import.meta.env.VITE_APP_API}/earn`),
@@ -25,16 +22,16 @@ function Home() {
         setIsLoading(false)
     }
 
-    useEffect(()=>{
-        getMoneyInfo()
-        getLatest()
-    },[])
-
     const getLatest = ()=>{
         axios.get(`${import.meta.env.VITE_APP_API}/latest`)
         .then((res)=>setLatestData(res.data))
         .catch((err)=>console.log(err))
     }
+
+    useEffect(()=>{
+        getMoneyInfo()
+        getLatest()
+    },[])
 
   if(isLoading){
     return(

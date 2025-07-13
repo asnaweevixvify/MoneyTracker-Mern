@@ -6,7 +6,6 @@ import Form from './components/Form'
 import Earn from './components/Earn'
 import Pay from './components/Pay'
 import Edit from './components/Edit'
-import Login from './components/Login'
 
 function App() {
 
@@ -19,7 +18,6 @@ function App() {
         <Route path='/earn' element={<Earn/>}></Route>
         <Route path='/pay' element={<Pay/>}></Route>
         <Route path='/edit/:id' element={<Edit/>}></Route>
-        <Route path='/login' element={<Login/>}></Route>
       </Routes>
     </div>
   )
