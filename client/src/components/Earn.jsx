@@ -9,6 +9,8 @@ function Earn() {
   const [earnData,setearnData] = useState([])
   const [month,setMonth] = useState('none')
   const [year,setYear] = useState(date.getFullYear())
+  const [monthList,setMonthList] = useState([])
+  const [yearList,setYearList] = useState([])
 
   const [isLoading,setIsLoading] = useState(true)
 
@@ -21,9 +23,31 @@ function Earn() {
     .catch((err)=>console.log(err))
   }
 
+   const getDateList = async ()=>{
+    const [monthListData,yearListData] = await Promise.all([
+      axios.get(`${import.meta.env.VITE_APP_API}/getMonthList`),
+      axios.get(`${import.meta.env.VITE_APP_API}/getYearList`)
+    ])
+    setMonthList(monthListData.data.list)
+    setYearList(yearListData.data.list)
+  }
+
+  const getFilterMonth = (e)=>{
+    setMonth(e.target.value)
+  }
+
+  const getFilterYear = (e)=>{
+    setYear(e.target.value)
+  }
+
   useEffect(()=>{
     getEarnData()
+    getDateList()
   },[])
+
+  useEffect(()=>{
+    getEarnData()
+  },[month,year])
 
   const confirmDel= (id)=>{
     Swal.fire({
@@ -60,7 +84,21 @@ function Earn() {
   else{
     return (
       <div className="list-container">
-          <h1 className='title'>รายรับ</h1>
+          <div className="filter">
+            <h1 className='titleList'>รายรับ</h1>
+            <select onChange={getFilterMonth}>
+              <option value="" hidden>-- เลือกเดือน --</option>
+              {monthList.map((e)=>{
+                return(<option value={e}>{e}</option>)
+              })}
+            </select>
+            <select onChange={getFilterYear}>
+              <option value="" hidden>-- เลือกปี --</option>
+              {yearList.map((e)=>{
+                return(<option value={e}>{e}</option>)
+              })}
+            </select>
+          </div>
           <ul className='topic'>
               <li>ชื่อรายการ</li>
               <li>จำนวนเงิน</li>

@@ -1,7 +1,7 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const Track = require('../trackModel')
-const {calTotal,calEarn,calPay} = require('../modules/module')
+const {calTotal,calEarn,calPay,getMonthListMod,getYearListMod} = require('../modules/module')
 
 //สร้างรายการ
 module.exports.create = (req,res)=>{
@@ -55,7 +55,7 @@ module.exports.getEarnList = (req,res)=>{
     else{
         Track.find({month,year,type:'รายรับ'})
         .then((data)=>res.json(data))
-        .calEarn((err)=>req.status(400).json({error:err}))
+        .catch((err)=>req.status(400).json({error:err}))
     }
 }
 
@@ -70,7 +70,7 @@ module.exports.getPayList = (req,res)=>{
     else{
         Track.find({month,year,type:'รายจ่าย'})
         .then((data)=>res.json(data))
-        .calEarn((err)=>req.status(400).json({error:err}))
+        .catch((err)=>req.status(400).json({error:err}))
     }
 }
 
@@ -104,4 +104,18 @@ module.exports.latest = (req,res)=>{
     Track.aggregate([{$sort:{date:-1}},{$limit:3}])
     .then((data)=>res.json(data))
     .catch((err)=>res.status(400).json({error:err}))
+}
+
+//ดึงค่าเดือนจากทุกรายการ
+module.exports.getMonthList = (req,res)=>{
+    Track.aggregate([{$sort:{month:1}},{$project:{_id:0,month:1}}])
+    .then((data)=>res.json({list:getMonthListMod(data)}))
+    .catch((err)=>console.log(err))
+}
+
+//ดึงค่าปีจากทุกรายการ
+module.exports.getYearList = (req,res)=>{
+    Track.aggregate([{$sort:{year:1}},{$project:{_id:0,year:1}}])
+    .then((data)=>res.json({list:getYearListMod(data)}))
+    .catch((err)=>console.log(err))
 }

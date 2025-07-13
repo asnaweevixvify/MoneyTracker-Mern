@@ -40,6 +40,11 @@ h1,h2,h3,h4,h5{
   font-weight: 500;
   font-size: 60px;
 }
+.titleList{
+  text-align: center;
+  font-weight: 500;
+  font-size: 60px;
+}
 .home-container{
   display: flex;
   flex-direction: column;
@@ -168,4 +173,17 @@ i{
 }
 .latest-container ul li{
   font-family: 'kanit';
+}
+.filter{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+  gap: 40px;
+}
+.filter select{
+  width: 200px;
+  height: 40px;
+  font-family: 'kanit';
+  font-size: 20px;
 }

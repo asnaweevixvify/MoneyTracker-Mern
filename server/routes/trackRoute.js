@@ -3,7 +3,7 @@ const router = express.Router()
 const {
     create,totalMoney,totalEarn,totalPay,
     getEarnList,getPayList,deleteItem,getOlddata
-    ,update,latest
+    ,update,latest,getMonthList,getYearList
 } = require('../controllers/trackControllers')
 
 router.post('/create',create)
@@ -16,5 +16,7 @@ router.delete('/delete/:id',deleteItem)
 router.get('/olddata/:id',getOlddata)
 router.put('/update/:id',update)
 router.get('/latest',latest)
+router.get('/getMonthList',getMonthList)
+router.get('/getYearList',getYearList)
 
 module.exports = router

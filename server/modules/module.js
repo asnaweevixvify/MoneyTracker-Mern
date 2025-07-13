@@ -27,3 +27,21 @@ module.exports.calPay = (money)=>{
     const result = Intl.NumberFormat().format(totalPay)
     return result
 }
+
+//ดึงค่าเดือนจากทุกรายการ
+module.exports.getMonthListMod = (data)=>{
+    const month = data.map((e)=>{
+        return e.month
+    })
+    const monthList = [...new Set(month)];
+    return monthList
+}
+
+//ดึงค่าปีจากทุกรายการ
+module.exports.getYearListMod = (data)=>{
+    const year = data.map((e)=>{
+        return e.year
+    })
+    const yearList = [...new Set(year)];
+    return yearList
+}
